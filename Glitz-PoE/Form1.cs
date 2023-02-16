@@ -21,6 +21,12 @@ namespace Glitz_PoE
         public Form1()
         {
             InitializeComponent();
+            setAllValues();
+            textBoxReadTagId.Text = "RD01";
+            comboBoxReadChannel.SelectedIndex = 0;
+            comboBoxReadPowerLevel.SelectedIndex = 9;
+            comboBoxReadRFBaudRead.SelectedIndex = 2;
+
             
             string[] portnames = SerialPort.GetPortNames();
             bReadPort = false;
@@ -38,19 +44,77 @@ namespace Glitz_PoE
             timer1.Start();
         }
 
-        private void labelReadMhz_Click(object sender, EventArgs e)
+        private void setAllValues()
         {
-
-        }
-
-        private void labelReadKbps_Click(object sender, EventArgs e)
-        {
-
+            int IP_MAXVAL = 255;
+            for(int i = 0; i <= IP_MAXVAL; i++)
+            {
+                comboBoxDefaultGateway1.Items.Add(i);
+                comboBoxDefaultGateway2.Items.Add(i);
+                comboBoxDefaultGateway3.Items.Add(i);
+                comboBoxDefaultGateway4.Items.Add(i);
+                comboBoxDeviceIP1.Items.Add(i);
+                comboBoxDeviceIP2.Items.Add(i);
+                comboBoxDeviceIP3.Items.Add(i);
+                comboBoxDeviceIP4.Items.Add(i);
+                comboBoxServerIP1.Items.Add(i);
+                comboBoxServerIP2.Items.Add(i);
+                comboBoxServerIP3.Items.Add(i);
+                comboBoxServerIP4.Items.Add(i);
+                comboBoxSubnetMask1.Items.Add(i);
+                comboBoxSubnetMask2.Items.Add(i);
+                comboBoxSubnetMask3.Items.Add(i);
+                comboBoxSubnetMask4.Items.Add(i);
+            }
+            for (double i = 915.1; i <= 919.9; i = i + 0.2)
+            {
+                comboBoxReadChannel.Items.Add(Math.Round(i, 2));
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             textBoxTime.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToLongTimeString();
+        }
+
+        private void buttonLoadDefaultSettings_Click(object sender, EventArgs e)
+        {
+            textBoxReadTagId.Text = "RD01";
+            comboBoxReadRFBaudRead.SelectedIndex = 2; // This isn't the best practice, if we decide to add more values to RF Baud Rate. Currently  RF Baud Rate[0] 
+            comboBoxReadPowerLevel.SelectedIndex = 9;
+            comboBoxReadChannel.SelectedIndex = 0;
+            //
+            // Default values of Subnet Mask
+            //
+            comboBoxSubnetMask1.SelectedIndex = 122;
+            comboBoxSubnetMask2.SelectedIndex = 165;
+            comboBoxSubnetMask3.SelectedIndex = 82;
+            comboBoxSubnetMask4.SelectedIndex = 90;
+            //
+            // Default values of Server IP
+            //
+            comboBoxServerIP1.SelectedIndex = 122;
+            comboBoxServerIP2.SelectedIndex = 165;
+            comboBoxServerIP3.SelectedIndex = 82;
+            comboBoxServerIP4.SelectedIndex = 90;
+            //
+            // Default values of Device IP
+            //
+            comboBoxDeviceIP1.SelectedIndex = 122;
+            comboBoxDeviceIP2.SelectedIndex = 165;
+            comboBoxDeviceIP3.SelectedIndex = 82;
+            comboBoxDeviceIP4.SelectedIndex = 90;
+            //
+            // Default values of Default Gateway
+            //
+            comboBoxDefaultGateway1.SelectedIndex = 122;
+            comboBoxDefaultGateway2.SelectedIndex = 165;
+            comboBoxDefaultGateway3.SelectedIndex = 82;
+            comboBoxDefaultGateway4.SelectedIndex = 90;
+            //
+            // Default values of Port
+            //
+            textBoxPort.Text = "05001";
         }
     }
 }

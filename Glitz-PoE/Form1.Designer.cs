@@ -48,11 +48,34 @@
             this.comboBoxSerialPort = new System.Windows.Forms.ComboBox();
             this.labelSerialPort = new System.Windows.Forms.Label();
             this.groupBoxNetworkSettings = new System.Windows.Forms.GroupBox();
+            this.textBoxPort = new System.Windows.Forms.TextBox();
+            this.comboBoxDefaultGateway4 = new System.Windows.Forms.ComboBox();
+            this.comboBoxDefaultGateway3 = new System.Windows.Forms.ComboBox();
+            this.comboBoxDefaultGateway2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxDefaultGateway1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxSubnetMask4 = new System.Windows.Forms.ComboBox();
+            this.comboBoxSubnetMask3 = new System.Windows.Forms.ComboBox();
+            this.comboBoxSubnetMask2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxSubnetMask1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxServerIP4 = new System.Windows.Forms.ComboBox();
+            this.comboBoxServerIP3 = new System.Windows.Forms.ComboBox();
+            this.comboBoxServerIP2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxServerIP1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxDeviceIP4 = new System.Windows.Forms.ComboBox();
+            this.comboBoxDeviceIP3 = new System.Windows.Forms.ComboBox();
+            this.comboBoxDeviceIP2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxDeviceIP1 = new System.Windows.Forms.ComboBox();
+            this.labelDefaultGateway = new System.Windows.Forms.Label();
+            this.labelSubnetMask = new System.Windows.Forms.Label();
+            this.labelPort = new System.Windows.Forms.Label();
+            this.labelServerIP = new System.Windows.Forms.Label();
+            this.labelDeviceIP = new System.Windows.Forms.Label();
             this.buttonWriteToDevice = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonLoadDefaultSettings = new System.Windows.Forms.Button();
             this.groupBoxReaderSettings.SuspendLayout();
             this.groupBoxPCSetting.SuspendLayout();
+            this.groupBoxNetworkSettings.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelAppTitle
@@ -109,7 +132,6 @@
             this.labelReadMhz.Size = new System.Drawing.Size(32, 15);
             this.labelReadMhz.TabIndex = 24;
             this.labelReadMhz.Text = "MHz";
-            this.labelReadMhz.Click += new System.EventHandler(this.labelReadMhz_Click);
             // 
             // labelReadKbps
             // 
@@ -121,7 +143,6 @@
             this.labelReadKbps.Size = new System.Drawing.Size(32, 15);
             this.labelReadKbps.TabIndex = 23;
             this.labelReadKbps.Text = "kbps";
-            this.labelReadKbps.Click += new System.EventHandler(this.labelReadKbps_Click);
             // 
             // labelReadDbm
             // 
@@ -196,9 +217,11 @@
             this.comboBoxReadRFBaudRead.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.comboBoxReadRFBaudRead.FormattingEnabled = true;
             this.comboBoxReadRFBaudRead.Items.AddRange(new object[] {
-            9.6D,
             38.4D,
-            100});
+            76.8D,
+            100D,
+            200D,
+            250D});
             this.comboBoxReadRFBaudRead.Location = new System.Drawing.Point(173, 80);
             this.comboBoxReadRFBaudRead.Name = "comboBoxReadRFBaudRead";
             this.comboBoxReadRFBaudRead.Size = new System.Drawing.Size(64, 23);
@@ -271,6 +294,28 @@
             // 
             // groupBoxNetworkSettings
             // 
+            this.groupBoxNetworkSettings.Controls.Add(this.textBoxPort);
+            this.groupBoxNetworkSettings.Controls.Add(this.comboBoxDefaultGateway4);
+            this.groupBoxNetworkSettings.Controls.Add(this.comboBoxDefaultGateway3);
+            this.groupBoxNetworkSettings.Controls.Add(this.comboBoxDefaultGateway2);
+            this.groupBoxNetworkSettings.Controls.Add(this.comboBoxDefaultGateway1);
+            this.groupBoxNetworkSettings.Controls.Add(this.comboBoxSubnetMask4);
+            this.groupBoxNetworkSettings.Controls.Add(this.comboBoxSubnetMask3);
+            this.groupBoxNetworkSettings.Controls.Add(this.comboBoxSubnetMask2);
+            this.groupBoxNetworkSettings.Controls.Add(this.comboBoxSubnetMask1);
+            this.groupBoxNetworkSettings.Controls.Add(this.comboBoxServerIP4);
+            this.groupBoxNetworkSettings.Controls.Add(this.comboBoxServerIP3);
+            this.groupBoxNetworkSettings.Controls.Add(this.comboBoxServerIP2);
+            this.groupBoxNetworkSettings.Controls.Add(this.comboBoxServerIP1);
+            this.groupBoxNetworkSettings.Controls.Add(this.comboBoxDeviceIP4);
+            this.groupBoxNetworkSettings.Controls.Add(this.comboBoxDeviceIP3);
+            this.groupBoxNetworkSettings.Controls.Add(this.comboBoxDeviceIP2);
+            this.groupBoxNetworkSettings.Controls.Add(this.comboBoxDeviceIP1);
+            this.groupBoxNetworkSettings.Controls.Add(this.labelDefaultGateway);
+            this.groupBoxNetworkSettings.Controls.Add(this.labelSubnetMask);
+            this.groupBoxNetworkSettings.Controls.Add(this.labelPort);
+            this.groupBoxNetworkSettings.Controls.Add(this.labelServerIP);
+            this.groupBoxNetworkSettings.Controls.Add(this.labelDeviceIP);
             this.groupBoxNetworkSettings.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxNetworkSettings.ForeColor = System.Drawing.Color.RoyalBlue;
             this.groupBoxNetworkSettings.Location = new System.Drawing.Point(390, 100);
@@ -279,6 +324,246 @@
             this.groupBoxNetworkSettings.TabIndex = 4;
             this.groupBoxNetworkSettings.TabStop = false;
             this.groupBoxNetworkSettings.Text = "Network Settings";
+            // 
+            // textBoxPort
+            // 
+            this.textBoxPort.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPort.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.textBoxPort.Location = new System.Drawing.Point(122, 123);
+            this.textBoxPort.Name = "textBoxPort";
+            this.textBoxPort.Size = new System.Drawing.Size(72, 23);
+            this.textBoxPort.TabIndex = 24;
+            // 
+            // comboBoxDefaultGateway4
+            // 
+            this.comboBoxDefaultGateway4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDefaultGateway4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxDefaultGateway4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.comboBoxDefaultGateway4.FormattingEnabled = true;
+            this.comboBoxDefaultGateway4.Location = new System.Drawing.Point(320, 221);
+            this.comboBoxDefaultGateway4.Name = "comboBoxDefaultGateway4";
+            this.comboBoxDefaultGateway4.Size = new System.Drawing.Size(48, 23);
+            this.comboBoxDefaultGateway4.TabIndex = 23;
+            // 
+            // comboBoxDefaultGateway3
+            // 
+            this.comboBoxDefaultGateway3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDefaultGateway3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxDefaultGateway3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.comboBoxDefaultGateway3.FormattingEnabled = true;
+            this.comboBoxDefaultGateway3.Location = new System.Drawing.Point(256, 221);
+            this.comboBoxDefaultGateway3.Name = "comboBoxDefaultGateway3";
+            this.comboBoxDefaultGateway3.Size = new System.Drawing.Size(54, 23);
+            this.comboBoxDefaultGateway3.TabIndex = 22;
+            // 
+            // comboBoxDefaultGateway2
+            // 
+            this.comboBoxDefaultGateway2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDefaultGateway2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxDefaultGateway2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.comboBoxDefaultGateway2.FormattingEnabled = true;
+            this.comboBoxDefaultGateway2.Location = new System.Drawing.Point(189, 221);
+            this.comboBoxDefaultGateway2.Name = "comboBoxDefaultGateway2";
+            this.comboBoxDefaultGateway2.Size = new System.Drawing.Size(48, 23);
+            this.comboBoxDefaultGateway2.TabIndex = 21;
+            // 
+            // comboBoxDefaultGateway1
+            // 
+            this.comboBoxDefaultGateway1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDefaultGateway1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxDefaultGateway1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.comboBoxDefaultGateway1.FormattingEnabled = true;
+            this.comboBoxDefaultGateway1.Location = new System.Drawing.Point(122, 221);
+            this.comboBoxDefaultGateway1.Name = "comboBoxDefaultGateway1";
+            this.comboBoxDefaultGateway1.Size = new System.Drawing.Size(50, 23);
+            this.comboBoxDefaultGateway1.TabIndex = 20;
+            // 
+            // comboBoxSubnetMask4
+            // 
+            this.comboBoxSubnetMask4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSubnetMask4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxSubnetMask4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.comboBoxSubnetMask4.FormattingEnabled = true;
+            this.comboBoxSubnetMask4.Location = new System.Drawing.Point(320, 176);
+            this.comboBoxSubnetMask4.Name = "comboBoxSubnetMask4";
+            this.comboBoxSubnetMask4.Size = new System.Drawing.Size(48, 23);
+            this.comboBoxSubnetMask4.TabIndex = 19;
+            // 
+            // comboBoxSubnetMask3
+            // 
+            this.comboBoxSubnetMask3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSubnetMask3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxSubnetMask3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.comboBoxSubnetMask3.FormattingEnabled = true;
+            this.comboBoxSubnetMask3.Location = new System.Drawing.Point(256, 176);
+            this.comboBoxSubnetMask3.Name = "comboBoxSubnetMask3";
+            this.comboBoxSubnetMask3.Size = new System.Drawing.Size(54, 23);
+            this.comboBoxSubnetMask3.TabIndex = 18;
+            // 
+            // comboBoxSubnetMask2
+            // 
+            this.comboBoxSubnetMask2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSubnetMask2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxSubnetMask2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.comboBoxSubnetMask2.FormattingEnabled = true;
+            this.comboBoxSubnetMask2.Location = new System.Drawing.Point(189, 176);
+            this.comboBoxSubnetMask2.Name = "comboBoxSubnetMask2";
+            this.comboBoxSubnetMask2.Size = new System.Drawing.Size(48, 23);
+            this.comboBoxSubnetMask2.TabIndex = 17;
+            // 
+            // comboBoxSubnetMask1
+            // 
+            this.comboBoxSubnetMask1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSubnetMask1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxSubnetMask1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.comboBoxSubnetMask1.FormattingEnabled = true;
+            this.comboBoxSubnetMask1.Location = new System.Drawing.Point(122, 176);
+            this.comboBoxSubnetMask1.Name = "comboBoxSubnetMask1";
+            this.comboBoxSubnetMask1.Size = new System.Drawing.Size(50, 23);
+            this.comboBoxSubnetMask1.TabIndex = 16;
+            // 
+            // comboBoxServerIP4
+            // 
+            this.comboBoxServerIP4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxServerIP4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxServerIP4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.comboBoxServerIP4.FormattingEnabled = true;
+            this.comboBoxServerIP4.Location = new System.Drawing.Point(320, 77);
+            this.comboBoxServerIP4.Name = "comboBoxServerIP4";
+            this.comboBoxServerIP4.Size = new System.Drawing.Size(48, 23);
+            this.comboBoxServerIP4.TabIndex = 15;
+            // 
+            // comboBoxServerIP3
+            // 
+            this.comboBoxServerIP3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxServerIP3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxServerIP3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.comboBoxServerIP3.FormattingEnabled = true;
+            this.comboBoxServerIP3.Location = new System.Drawing.Point(256, 77);
+            this.comboBoxServerIP3.Name = "comboBoxServerIP3";
+            this.comboBoxServerIP3.Size = new System.Drawing.Size(54, 23);
+            this.comboBoxServerIP3.TabIndex = 14;
+            // 
+            // comboBoxServerIP2
+            // 
+            this.comboBoxServerIP2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxServerIP2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxServerIP2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.comboBoxServerIP2.FormattingEnabled = true;
+            this.comboBoxServerIP2.Location = new System.Drawing.Point(189, 77);
+            this.comboBoxServerIP2.Name = "comboBoxServerIP2";
+            this.comboBoxServerIP2.Size = new System.Drawing.Size(48, 23);
+            this.comboBoxServerIP2.TabIndex = 13;
+            // 
+            // comboBoxServerIP1
+            // 
+            this.comboBoxServerIP1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxServerIP1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxServerIP1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.comboBoxServerIP1.FormattingEnabled = true;
+            this.comboBoxServerIP1.Location = new System.Drawing.Point(122, 77);
+            this.comboBoxServerIP1.Name = "comboBoxServerIP1";
+            this.comboBoxServerIP1.Size = new System.Drawing.Size(50, 23);
+            this.comboBoxServerIP1.TabIndex = 12;
+            // 
+            // comboBoxDeviceIP4
+            // 
+            this.comboBoxDeviceIP4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDeviceIP4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxDeviceIP4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.comboBoxDeviceIP4.FormattingEnabled = true;
+            this.comboBoxDeviceIP4.Location = new System.Drawing.Point(320, 32);
+            this.comboBoxDeviceIP4.Name = "comboBoxDeviceIP4";
+            this.comboBoxDeviceIP4.Size = new System.Drawing.Size(48, 23);
+            this.comboBoxDeviceIP4.TabIndex = 11;
+            // 
+            // comboBoxDeviceIP3
+            // 
+            this.comboBoxDeviceIP3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDeviceIP3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxDeviceIP3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.comboBoxDeviceIP3.FormattingEnabled = true;
+            this.comboBoxDeviceIP3.Location = new System.Drawing.Point(256, 32);
+            this.comboBoxDeviceIP3.Name = "comboBoxDeviceIP3";
+            this.comboBoxDeviceIP3.Size = new System.Drawing.Size(54, 23);
+            this.comboBoxDeviceIP3.TabIndex = 10;
+            // 
+            // comboBoxDeviceIP2
+            // 
+            this.comboBoxDeviceIP2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDeviceIP2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxDeviceIP2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.comboBoxDeviceIP2.FormattingEnabled = true;
+            this.comboBoxDeviceIP2.Location = new System.Drawing.Point(189, 32);
+            this.comboBoxDeviceIP2.Name = "comboBoxDeviceIP2";
+            this.comboBoxDeviceIP2.Size = new System.Drawing.Size(48, 23);
+            this.comboBoxDeviceIP2.TabIndex = 9;
+            // 
+            // comboBoxDeviceIP1
+            // 
+            this.comboBoxDeviceIP1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDeviceIP1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxDeviceIP1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.comboBoxDeviceIP1.FormattingEnabled = true;
+            this.comboBoxDeviceIP1.Location = new System.Drawing.Point(122, 32);
+            this.comboBoxDeviceIP1.Name = "comboBoxDeviceIP1";
+            this.comboBoxDeviceIP1.Size = new System.Drawing.Size(50, 23);
+            this.comboBoxDeviceIP1.TabIndex = 8;
+            // 
+            // labelDefaultGateway
+            // 
+            this.labelDefaultGateway.AutoSize = true;
+            this.labelDefaultGateway.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDefaultGateway.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelDefaultGateway.Location = new System.Drawing.Point(22, 224);
+            this.labelDefaultGateway.Name = "labelDefaultGateway";
+            this.labelDefaultGateway.Size = new System.Drawing.Size(93, 15);
+            this.labelDefaultGateway.TabIndex = 6;
+            this.labelDefaultGateway.Text = "Default Gateway";
+            // 
+            // labelSubnetMask
+            // 
+            this.labelSubnetMask.AutoSize = true;
+            this.labelSubnetMask.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSubnetMask.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelSubnetMask.Location = new System.Drawing.Point(22, 179);
+            this.labelSubnetMask.Name = "labelSubnetMask";
+            this.labelSubnetMask.Size = new System.Drawing.Size(75, 15);
+            this.labelSubnetMask.TabIndex = 5;
+            this.labelSubnetMask.Text = "Subnet Mask";
+            // 
+            // labelPort
+            // 
+            this.labelPort.AutoSize = true;
+            this.labelPort.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPort.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelPort.Location = new System.Drawing.Point(22, 126);
+            this.labelPort.Name = "labelPort";
+            this.labelPort.Size = new System.Drawing.Size(29, 15);
+            this.labelPort.TabIndex = 4;
+            this.labelPort.Text = "Port";
+            // 
+            // labelServerIP
+            // 
+            this.labelServerIP.AutoSize = true;
+            this.labelServerIP.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelServerIP.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelServerIP.Location = new System.Drawing.Point(22, 80);
+            this.labelServerIP.Name = "labelServerIP";
+            this.labelServerIP.Size = new System.Drawing.Size(52, 15);
+            this.labelServerIP.TabIndex = 3;
+            this.labelServerIP.Text = "Server IP";
+            // 
+            // labelDeviceIP
+            // 
+            this.labelDeviceIP.AutoSize = true;
+            this.labelDeviceIP.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDeviceIP.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelDeviceIP.Location = new System.Drawing.Point(22, 32);
+            this.labelDeviceIP.Name = "labelDeviceIP";
+            this.labelDeviceIP.Size = new System.Drawing.Size(55, 15);
+            this.labelDeviceIP.TabIndex = 2;
+            this.labelDeviceIP.Text = "Device IP";
             // 
             // buttonWriteToDevice
             // 
@@ -308,6 +593,7 @@
             this.buttonLoadDefaultSettings.TabIndex = 9;
             this.buttonLoadDefaultSettings.Text = "Load Default Settings";
             this.buttonLoadDefaultSettings.UseVisualStyleBackColor = true;
+            this.buttonLoadDefaultSettings.Click += new System.EventHandler(this.buttonLoadDefaultSettings_Click);
             // 
             // Form1
             // 
@@ -323,12 +609,14 @@
             this.Controls.Add(this.textBoxTime);
             this.Controls.Add(this.labelAppTitle);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Glitz PoE Transmitter - Device Configuration Utility";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBoxReaderSettings.ResumeLayout(false);
             this.groupBoxReaderSettings.PerformLayout();
             this.groupBoxPCSetting.ResumeLayout(false);
             this.groupBoxPCSetting.PerformLayout();
+            this.groupBoxNetworkSettings.ResumeLayout(false);
+            this.groupBoxNetworkSettings.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -358,6 +646,28 @@
         private System.Windows.Forms.Button buttonWriteToDevice;
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Button buttonLoadDefaultSettings;
+        private System.Windows.Forms.TextBox textBoxPort;
+        private System.Windows.Forms.ComboBox comboBoxDefaultGateway4;
+        private System.Windows.Forms.ComboBox comboBoxDefaultGateway3;
+        private System.Windows.Forms.ComboBox comboBoxDefaultGateway2;
+        private System.Windows.Forms.ComboBox comboBoxDefaultGateway1;
+        private System.Windows.Forms.ComboBox comboBoxSubnetMask4;
+        private System.Windows.Forms.ComboBox comboBoxSubnetMask3;
+        private System.Windows.Forms.ComboBox comboBoxSubnetMask2;
+        private System.Windows.Forms.ComboBox comboBoxSubnetMask1;
+        private System.Windows.Forms.ComboBox comboBoxServerIP4;
+        private System.Windows.Forms.ComboBox comboBoxServerIP3;
+        private System.Windows.Forms.ComboBox comboBoxServerIP2;
+        private System.Windows.Forms.ComboBox comboBoxServerIP1;
+        private System.Windows.Forms.ComboBox comboBoxDeviceIP4;
+        private System.Windows.Forms.ComboBox comboBoxDeviceIP3;
+        private System.Windows.Forms.ComboBox comboBoxDeviceIP2;
+        private System.Windows.Forms.ComboBox comboBoxDeviceIP1;
+        private System.Windows.Forms.Label labelDefaultGateway;
+        private System.Windows.Forms.Label labelSubnetMask;
+        private System.Windows.Forms.Label labelPort;
+        private System.Windows.Forms.Label labelServerIP;
+        private System.Windows.Forms.Label labelDeviceIP;
     }
 }
 
