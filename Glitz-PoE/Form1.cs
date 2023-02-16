@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
+using System.Net;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace Glitz_PoE
 {
@@ -36,8 +39,6 @@ namespace Glitz_PoE
                 comboBoxSerialPort.Items.Add(name);
             }
         }
-
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -79,6 +80,11 @@ namespace Glitz_PoE
 
         private void buttonLoadDefaultSettings_Click(object sender, EventArgs e)
         {
+            loadDefaultValue();
+        }
+
+        private void loadDefaultValue()
+        {
             textBoxReadTagId.Text = "RD01";
             comboBoxReadRFBaudRead.SelectedIndex = 2; // This isn't the best practice, if we decide to add more values to RF Baud Rate. Currently  RF Baud Rate[0] 
             comboBoxReadPowerLevel.SelectedIndex = 9;
@@ -115,6 +121,132 @@ namespace Glitz_PoE
             // Default values of Port
             //
             textBoxPort.Text = "05001";
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonWriteToDevice_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This button Writes to Device! Yet to to be implemented!");
+        }
+
+        private void userManualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string filename = @"C:\Users\nvadi\source\repos\Glitz-PoE\Glitz-PoE\Properties\UserDoc.pdf";
+            System.Diagnostics.Process.Start(filename);
+        }
+        private void userManualToolStripMenuItem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.F1)
+            {
+                string filename = @"C:\Users\nvadi\source\repos\Glitz-PoE\Glitz-PoE\Properties\UserDoc.pdf";
+                System.Diagnostics.Process.Start(filename);
+            }
+
+        }
+
+        private void loadDefaultSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loadDefaultValue();
+        }
+
+        private void loadDefaultSettingsToolStripMenuItem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.D)
+            {
+                loadDefaultValue();
+            }
+        }
+
+        private void writeToDeviceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string url = "https://www.youtube.com/watch?v=bWXazVhlyxQ";
+            try
+            {
+                Process.Start(url);
+            }
+            catch(Exception ex)
+            {
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                {
+                    url = url.Replace("&", "^&");
+                    Process.Start(new ProcessStartInfo("cmd", $"/c start {url}") { CreateNoWindow = true });
+                }
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                {
+                    Process.Start("xdg-open", url);
+                }
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                {
+                    Process.Start("open", url);
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+        }
+
+        private void writeToDeviceTooStripMenuItem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Control && e.KeyCode == Keys.W)
+            {
+
+                string url = "https://www.youtube.com/watch?v=bWXazVhlyxQ";
+                try
+                {
+                    Process.Start(url);
+                }
+                catch (Exception ex)
+                {
+                    if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                    {
+                        url = url.Replace("&", "^&");
+                        Process.Start(new ProcessStartInfo("cmd", $"/c start {url}") { CreateNoWindow = true });
+                    }
+                    else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                    {
+                        Process.Start("xdg-open", url);
+                    }
+                    else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                    {
+                        Process.Start("open", url);
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+
+            }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void exitToolStripMenuItem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Control && e.KeyCode == Keys.E)
+            {
+                this.Close();
+            }
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form2 = new Form2();
+            form2.ShowDialog();
+        }
+
+        private void aboutToolStripMenuItem_KeyDown(object sender, KeyEventArgs e)
+        {
+
         }
     }
 }
