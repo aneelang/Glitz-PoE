@@ -714,6 +714,8 @@
 
         }
 
+        // need to enable bitbucket
+
         #endregion
 
         private System.Windows.Forms.Label labelAppTitle;
