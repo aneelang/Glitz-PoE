@@ -671,7 +671,7 @@
             // 
             this.userManualToolStripMenuItem.Name = "userManualToolStripMenuItem";
             this.userManualToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.userManualToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.userManualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.userManualToolStripMenuItem.Text = "User Manual";
             this.userManualToolStripMenuItem.Click += new System.EventHandler(this.userManualToolStripMenuItem_Click);
             // 
@@ -697,10 +697,11 @@
             this.Controls.Add(this.groupBoxReaderSettings);
             this.Controls.Add(this.textBoxTime);
             this.Controls.Add(this.labelAppTitle);
+            this.KeyPreview = true;
             this.Name = "Form1";
             this.Text = "Glitz PoE Transmitter - Device Configuration Utility";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.loadDefaultSettingsToolStripMenuItem_KeyDown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.groupBoxReaderSettings.ResumeLayout(false);
             this.groupBoxReaderSettings.PerformLayout();
             this.groupBoxPCSetting.ResumeLayout(false);

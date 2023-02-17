@@ -11,6 +11,7 @@ using System.IO.Ports;
 using System.Net;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Configuration;
 
 namespace Glitz_PoE
 {
@@ -30,7 +31,14 @@ namespace Glitz_PoE
             comboBoxReadPowerLevel.SelectedIndex = 9;
             comboBoxReadRFBaudRead.SelectedIndex = 2;
 
+            string myValue = Glitz_PoE.Properties.Settings.Default.DeviceID;
+            if (myValue.Length > 2)
+            {
+                textBoxReadTagId.Text = myValue.ToString();
+            }
             
+
+
             string[] portnames = SerialPort.GetPortNames();
             bReadPort = false;
             bWritePort = false;
@@ -125,6 +133,9 @@ namespace Glitz_PoE
 
         private void buttonExit_Click(object sender, EventArgs e)
         {
+/*            string myValue = textBoxReadTagId.Text;
+            Glitz_PoE.Properties.Settings.Default.DeviceID = myValue;
+            Glitz_PoE.Properties.Settings.Default.Save();*/
             this.Close();
         }
 
@@ -138,28 +149,28 @@ namespace Glitz_PoE
             string filename = @"C:\Users\nvadi\source\repos\Glitz-PoE\Glitz-PoE\Properties\UserDoc.pdf";
             System.Diagnostics.Process.Start(filename);
         }
-        private void userManualToolStripMenuItem_KeyDown(object sender, KeyEventArgs e)
+/*        private void userManualToolStripMenuItem_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.F1)
+*//*            if(e.KeyCode == Keys.F1)
             {
                 string filename = @"C:\Users\nvadi\source\repos\Glitz-PoE\Glitz-PoE\Properties\UserDoc.pdf";
                 System.Diagnostics.Process.Start(filename);
-            }
+            }*//*
 
-        }
+        }*/
 
         private void loadDefaultSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             loadDefaultValue();
         }
-
+/*
         private void loadDefaultSettingsToolStripMenuItem_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Control && e.KeyCode == Keys.D)
+*//*            if (e.Control && e.KeyCode == Keys.D)
             {
                 loadDefaultValue();
-            }
-        }
+            }*//*
+        }*/
 
         private void writeToDeviceToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -191,7 +202,7 @@ namespace Glitz_PoE
 
         }
 
-        private void writeToDeviceTooStripMenuItem_KeyDown(object sender, KeyEventArgs e)
+/*        private void writeToDeviceTooStripMenuItem_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.Control && e.KeyCode == Keys.W)
             {
@@ -224,19 +235,19 @@ namespace Glitz_PoE
 
             }
         }
-
+*/
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+/*
         private void exitToolStripMenuItem_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.Control && e.KeyCode == Keys.E)
             {
                 this.Close();
             }
-        }
+        }*/
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -244,8 +255,58 @@ namespace Glitz_PoE
             form2.ShowDialog();
         }
 
-        private void aboutToolStripMenuItem_KeyDown(object sender, KeyEventArgs e)
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Control && e.KeyCode == Keys.E)
+            {
+                string myValue = textBoxReadTagId.Text;
+                Glitz_PoE.Properties.Settings.Default.DeviceID = myValue;
+                Glitz_PoE.Properties.Settings.Default.Save();
+                this.Close();
+            }
+
+            if (e.Control && e.KeyCode == Keys.W)
+            {
+
+                string url = "https://www.youtube.com/watch?v=bWXazVhlyxQ";
+                try
+                {
+                    Process.Start(url);
+                }
+                catch (Exception ex)
+                {
+                    if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                    {
+                        url = url.Replace("&", "^&");
+                        Process.Start(new ProcessStartInfo("cmd", $"/c start {url}") { CreateNoWindow = true });
+                    }
+                    else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                    {
+                        Process.Start("xdg-open", url);
+                    }
+                    else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                    {
+                        Process.Start("open", url);
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+
+            }
+            if (e.Control && e.KeyCode == Keys.D)
+            {
+                loadDefaultValue();
+            }
+
+            if (e.KeyCode == Keys.F1)
+            {
+                string filename = @"C:\Users\nvadi\source\repos\Glitz-PoE\Glitz-PoE\Properties\UserDoc.pdf";
+                System.Diagnostics.Process.Start(filename);
+            }
+
+
 
         }
     }
